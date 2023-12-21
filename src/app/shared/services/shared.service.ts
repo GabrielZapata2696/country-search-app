@@ -11,7 +11,7 @@ export class SharedService {
   private toggle: BehaviorSubject<boolean>;
 
   constructor() {
-    this.toggle = new BehaviorSubject<boolean>(true);
+    this.toggle = new BehaviorSubject<boolean>(false);
   }
 
   public getToggleValue(): Observable<boolean> {

@@ -1,0 +1,94 @@
+<div
+  *ngIf="countries.length === 0; else table"
+  class="alert alert-warning text-center"
+>
+  No countries found
+</div>
+
+<ng-template #table>
+  <!-- <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Icon</th>
+        <th>Bandera</th>
+        <th>Nombre</th>
+        <th>Capital</th>
+        <th>Población</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let country of countries; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ country.flag }}</td>
+        <td><img [src]="country.flags.svg" [alt]="country.name.common" /></td>
+        <td>{{ country.name.common }}</td>
+        <td>{{ country.capital }}</td>
+        <td>{{ country.population | number }}</td>
+        <td><a [routerLink]="['/countries/by/', country.cca3]">Info</a></td>
+      </tr>
+    </tbody>
+  </table> -->
+
+  <table mat-table [dataSource]="countries">
+    <!-- Position Column -->
+    <ng-container matColumnDef="#">
+      <th mat-header-cell *matHeaderCellDef>No.</th>
+      <td mat-cell *matCellDef="let element; let i = index">{{ i + 1 }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="icon">
+      <th mat-header-cell *matHeaderCellDef>Icon</th>
+      <td mat-cell *matCellDef="let element">{{ element.flag }}</td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="bandera">
+      <th mat-header-cell *matHeaderCellDef>Bandera</th>
+      <td mat-cell *matCellDef="let element">
+        <img [src]="element.flags.svg" [alt]="element.name.common" />
+      </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef>Nombre</th>
+      <td mat-cell *matCellDef="let element">{{ element.name.common }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="capital">
+      <th mat-header-cell *matHeaderCellDef>Capital</th>
+      <td mat-cell *matCellDef="let element">{{ element.capital }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="poblacion">
+      <th mat-header-cell *matHeaderCellDef>Población</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.population | number }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="info">
+      <th mat-header-cell *matHeaderCellDef>info</th>
+      <td mat-cell *matCellDef="let element">
+        <a [routerLink]="['/countries/by/', element.cca3]">Info</a>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator
+    #paginator
+    class="demo-paginator"
+    [length]="countries.length"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[5, 10, 25]"
+    [pageIndex]="pageIndex"
+    aria-label="Select page"
+  >
+  </mat-paginator>
+</ng-template>

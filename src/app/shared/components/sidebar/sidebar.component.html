@@ -2,15 +2,11 @@
   <mat-drawer #drawer class="sidenav" mode="over">
     <div class="sidenav-content">
       <mat-list role="list">
-        <p class="text-center h4">Filtros</p>
+        <p class="text-center h4 m-2">Search filters</p>
         <hr />
         <mat-list-item role="listitem" *ngFor="let item of sideNavItems">
           <div class="nav-button text-left">
-            <button
-              mat-raised-button
-              [routerLink]="[item.url]"
-              routerLinkActive="active"
-            >
+            <button mat-raised-button [routerLink]="[item.url]">
               <span> {{ item.nombre }}</span>
               <mat-icon
                 aria-hidden="false"
@@ -27,7 +23,7 @@
               routerLinkActive="active"
               (click)="cambiarTema()"
             >
-              <span> Cambiar tema</span>
+              <span> Change theme</span>
               <mat-icon
                 aria-hidden="false"
                 fontIcon="brightness_medium"
@@ -38,4 +34,7 @@
       </mat-list>
     </div>
   </mat-drawer>
+  <main class="container">
+    <router-outlet class="container"></router-outlet>
+  </main>
 </mat-drawer-container>

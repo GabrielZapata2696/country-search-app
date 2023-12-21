@@ -55,4 +55,9 @@ $dark-theme: mat.define-dark-theme((
 }
 
 
+/*Esconder scrollbar en todo el proyecto*/
+::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
 

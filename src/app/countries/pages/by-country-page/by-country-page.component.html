@@ -1,0 +1,24 @@
+<div class="text-center">
+  <span class="display-6 text-muted">Search by </span>
+  <strong class="display-4">Country</strong>
+</div>
+<hr />
+
+<div class="row">
+  <div class="col">
+    <!--search box-->
+    <span class="text-muted"> Write to search:</span>
+    <shared-search-box
+      [placeholder]="placeholder"
+      (onValue)="searchByCountry($event)"
+    ></shared-search-box>
+  </div>
+</div>
+
+<hr />
+
+<div class="row">
+  <div class="col">
+    <countries-table [countries]="countries"></countries-table>
+  </div>
+</div>

@@ -33,9 +33,9 @@ export class SidebarComponent implements OnInit {
 
   setSideNavItems() {
     this.sideNavItems = [
-      { nombre: 'Por capital', url: '', icon: 'location_city' },
-      { nombre: 'Por país', url: '', icon: 'south_america' },
-      { nombre: 'Por región', url: '', icon: 'token' }
+      { nombre: 'By capital', url: 'countries/by-capital', icon: 'location_city' },
+      { nombre: 'By país', url: 'countries/by-country', icon: 'south_america' },
+      { nombre: 'By región', url: 'countries/by-region', icon: 'token' }
     ]
   }
 

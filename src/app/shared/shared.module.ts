@@ -4,6 +4,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MaterialModule } from '../material/material.module';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { RouterModule } from '@angular/router';
+import { SearchBoxComponent } from './components/search-box/search-box.component';
+
 
 
 
@@ -12,6 +14,8 @@ import { RouterModule } from '@angular/router';
   declarations: [
     SidebarComponent,
     ToolbarComponent,
+    SearchBoxComponent,
+
 
   ],
   imports: [
@@ -21,7 +25,8 @@ import { RouterModule } from '@angular/router';
   ],
   exports: [
     SidebarComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    SearchBoxComponent
   ]
 })
 export class SharedModule { }
