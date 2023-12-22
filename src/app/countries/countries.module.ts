@@ -9,6 +9,8 @@ import { CountryPageComponent } from './pages/country-page/country-page.componen
 import { CountryTableComponent } from './components/country-table/country-table.component';
 import { SharedModule } from '../shared/shared.module';
 import { MaterialModule } from '../material/material.module';
+import { GridComponent } from './components/grid/grid.component';
+import { CardComponent } from './components/card/card.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { MaterialModule } from '../material/material.module';
     ByCountryPageComponent,
     ByRegionPageComponent,
     CountryPageComponent,
-    CountryTableComponent
+    CountryTableComponent,
+    GridComponent,
+    CardComponent
   ],
   imports: [
     CommonModule,

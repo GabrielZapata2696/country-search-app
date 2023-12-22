@@ -1,13 +1,11 @@
 <ng-template #loading>
-  <div class="alert alert-info text-center">Espere por favor</div>
+  <div class="alert alert-info text-center">Please wait...</div>
 </ng-template>
 
 <div *ngIf="country; else loading">
-  <div class="row">
+  <div class="row mb-3">
     <div class="col-12">
-      <h2>
-        Pais: <strong> {{ country.name.common }} </strong>
-      </h2>
+      <strong class="display-4">{{ country.name.common }}</strong>
     </div>
   </div>
 
@@ -18,54 +16,70 @@
         [alt]="country.name.common"
         class="img-thumbnail"
       />
+      <div class="row mt-2">
+        <div class="col">
+          <mat-chip-listbox aria-label="Fish selection">
+            <mat-chip-option>{{
+              country.translations["ara"]?.common
+            }}</mat-chip-option>
+            <mat-chip-option>{{
+              country.translations["deu"]?.common
+            }}</mat-chip-option>
+            <mat-chip-option>{{
+              country.translations["fra"]?.common
+            }}</mat-chip-option>
+            <mat-chip-option>{{
+              country.translations["jpn"]?.common
+            }}</mat-chip-option>
+            <mat-chip-option>{{
+              country.translations["spa"]?.common
+            }}</mat-chip-option>
+            <mat-chip-option>{{
+              country.translations["rus"]?.common
+            }}</mat-chip-option>
+            <mat-chip-option>{{
+              country.translations["urd"]?.common
+            }}</mat-chip-option>
+            <mat-chip-option>{{
+              country.translations["tur"]?.common
+            }}</mat-chip-option>
+            <mat-chip-option>{{
+              country.translations["kor"]?.common
+            }}</mat-chip-option>
+          </mat-chip-listbox>
+        </div>
+      </div>
     </div>
 
     <div class="col">
-      <h3>Información</h3>
+      <h1>Information</h1>
       <ul class="list-group">
         <li class="list-group-item">
-          <strong>Población:</strong> {{ country.population | number }}
+          <strong>Official name:</strong> {{ country.name.official }}
+        </li>
+        <li class="list-group-item">
+          <strong>Capital city:</strong> {{ country.capital }}
+        </li>
+        <li class="list-group-item">
+          <strong>Population:</strong> {{ country.population | number }}
         </li>
 
         <li class="list-group-item">
-          <strong>Código:</strong> {{ country.cca3 }}
+          <strong>Code:</strong> {{ country.cca3 }}
+        </li>
+        <li class="list-group-item">
+          <strong>Currencies:</strong> {{ country.currencies | json }}
+        </li>
+        <li class="list-group-item">
+          <strong>Flag data:</strong> {{ country.flags.alt }}
+        </li>
+        <li class="list-group-item">
+          <strong>Continents:</strong> {{ country.continents }}
+        </li>
+        <li class="list-group-item">
+          <strong>Borders:</strong> {{ country.borders }}
         </li>
       </ul>
-    </div>
-  </div>
-
-  <div class="row mt-2">
-    <div class="col">
-      <h3>Traducciones</h3>
-      <div class="d-flex flex-wrap">
-        <span class="badge bg-primary m-1">
-          {{ country.translations["ara"]?.common }}
-        </span>
-        <span class="badge bg-primary m-1">
-          {{ country.translations["deu"]?.common }}
-        </span>
-        <span class="badge bg-primary m-1">
-          {{ country.translations["fra"]?.common }}
-        </span>
-        <span class="badge bg-primary m-1">
-          {{ country.translations["jpn"]?.common }}
-        </span>
-        <span class="badge bg-primary m-1">
-          {{ country.translations["spa"]?.common }}
-        </span>
-        <span class="badge bg-primary m-1">
-          {{ country.translations["rus"]?.common }}
-        </span>
-        <span class="badge bg-primary m-1">
-          {{ country.translations["urd"]?.common }}
-        </span>
-        <span class="badge bg-primary m-1">
-          {{ country.translations["tur"]?.common }}
-        </span>
-        <span class="badge bg-primary m-1">
-          {{ country.translations["kor"]?.common }}
-        </span>
-      </div>
     </div>
   </div>
 </div>

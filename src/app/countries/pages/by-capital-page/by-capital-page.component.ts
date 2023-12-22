@@ -21,9 +21,14 @@ export class ByCapitalPageComponent {
   searchByCapital(termino: string) {
     this.countriesService.searchCapital(termino)
       .subscribe(resp => {
+        this.countries = [];
         this.countries = resp;
       });
 
+  }
+
+  reiniciarTabla() {
+    this.countries = [];
   }
 
 }

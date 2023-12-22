@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-4 mb-2 p-0" *ngFor="let country of obsDataGrid | async">
+    <country-card [country]="country" class="card"></country-card>
+  </div>
+</div>
+
+<mat-paginator
+  [length]="length"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="pageSizeOptions"
+  class="mb-2"
+>
+</mat-paginator>

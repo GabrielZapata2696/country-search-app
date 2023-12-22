@@ -1,0 +1,45 @@
+<mat-card class="card">
+  <mat-card-header>
+    <div mat-card-avatar>
+      <img
+        mat-card-image
+        [src]="country.flags.svg"
+        [alt]="country.name.common"
+        class="image-avatar"
+      />
+    </div>
+    <mat-card-title> {{ country.name.common }} </mat-card-title>
+    <mat-card-subtitle
+      >Capital: <strong>{{ country.capital }}</strong>
+    </mat-card-subtitle>
+  </mat-card-header>
+
+  <div class="img-container">
+    <img
+      mat-card-image
+      class="main-image-card"
+      [src]="country.flags.svg"
+      [alt]="country.name.common"
+    />
+  </div>
+
+  <mat-card-content>
+    <div class="mt-4">
+      <mat-card-title> The flag: </mat-card-title>
+
+      <p>
+        {{ country.flags.alt }}
+      </p>
+    </div>
+  </mat-card-content>
+
+  <mat-card-content>
+    <mat-card-title> Translated: </mat-card-title>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-button [routerLink]="['/countries/by/', country.cca3]">
+      info
+    </button>
+  </mat-card-actions>
+</mat-card>
