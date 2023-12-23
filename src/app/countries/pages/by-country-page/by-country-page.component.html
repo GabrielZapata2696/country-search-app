@@ -10,7 +10,7 @@
     <span class="text-muted"> Write to search:</span>
     <shared-search-box
       [placeholder]="placeholder"
-      (onValue)="searchByCountry($event)"
+      (onDebounce)="searchByCountry($event)"
     ></shared-search-box>
   </div>
 </div>

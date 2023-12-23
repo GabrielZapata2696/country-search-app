@@ -5,6 +5,7 @@ import { MaterialModule } from '../material/material.module';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { RouterModule } from '@angular/router';
 import { SearchBoxComponent } from './components/search-box/search-box.component';
+import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 
 
 
@@ -12,9 +13,10 @@ import { SearchBoxComponent } from './components/search-box/search-box.component
 
 @NgModule({
   declarations: [
+    LoadingSpinnerComponent,
+    SearchBoxComponent,
     SidebarComponent,
     ToolbarComponent,
-    SearchBoxComponent,
 
 
   ],
@@ -24,9 +26,10 @@ import { SearchBoxComponent } from './components/search-box/search-box.component
     MaterialModule
   ],
   exports: [
+    LoadingSpinnerComponent,
+    SearchBoxComponent,
     SidebarComponent,
     ToolbarComponent,
-    SearchBoxComponent
   ]
 })
 export class SharedModule { }

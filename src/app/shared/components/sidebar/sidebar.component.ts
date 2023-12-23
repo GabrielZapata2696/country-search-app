@@ -9,7 +9,7 @@ import { NavigationItem } from '../../interfaces/navigationItem.interface';
 })
 export class SidebarComponent implements OnInit {
 
-  @ViewChild('drawer', { static: true })
+  @ViewChild('drawer')
   public sidenav!: any;
 
   @Output() onCambioTema: EventEmitter<boolean> = new EventEmitter();

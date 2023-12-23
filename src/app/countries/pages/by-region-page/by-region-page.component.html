@@ -10,7 +10,7 @@
     <span class="text-muted"> Write to search a region:</span>
     <shared-search-box
       [placeholder]="placeholder"
-      (onValue)="searchByRegion($event)"
+      (onDebounce)="searchByRegion($event)"
     ></shared-search-box>
   </div>
 </div>

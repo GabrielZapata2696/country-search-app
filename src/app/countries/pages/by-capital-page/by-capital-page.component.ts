@@ -10,7 +10,7 @@ import { Country } from '../../interfaces/country.interface';
 export class ByCapitalPageComponent {
 
   public placeholder: string = 'ej. Bogotá...';
-
+  public isLoading: boolean = false;
   public countries: Country[] = [];
 
   constructor(
@@ -19,10 +19,12 @@ export class ByCapitalPageComponent {
 
 
   searchByCapital(termino: string) {
+    this.isLoading = true;
     this.countriesService.searchCapital(termino)
       .subscribe(resp => {
         this.countries = [];
         this.countries = resp;
+        this.isLoading = false;
       });
 
   }
