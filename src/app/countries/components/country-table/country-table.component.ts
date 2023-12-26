@@ -2,7 +2,7 @@ import { AfterViewInit, Component, Input, OnChanges, OnInit, ViewChild } from '@
 import { Country } from '../../interfaces/country.interface';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 
 @Component({
@@ -24,15 +24,17 @@ export class CountryTableComponent implements AfterViewInit, OnChanges {
   public displayedColumns: string[] = [ '#', 'icon', 'bandera', 'nombre', 'capital', 'poblacion', 'info' ];
   @ViewChild(MatPaginator) paginator?: MatPaginator;
   public dataSource = new MatTableDataSource<Country>([]);
-
+  public obsDataTable?: Observable<any>;
   public modoVista: boolean = true;
 
   constructor() { }
 
   ngOnChanges() {
-    this.dataSource = new MatTableDataSource<Country>(this.countries);
+    //this.dataSource = new MatTableDataSource<Country>(this.countries);
     this.dataSource.data = this.countries;
     this.dataSource.paginator = this.paginator!;
+    this.obsDataTable = this.dataSource.connect();
+
   }
 
   ngAfterViewInit() {
@@ -40,6 +42,8 @@ export class CountryTableComponent implements AfterViewInit, OnChanges {
     this.dataSource.paginator = this.paginator!;
     this.dataSource.data = [];
     this.dataSource.data = this.countries;
+    this.obsDataTable = this.dataSource.connect();
+
   }
 
 

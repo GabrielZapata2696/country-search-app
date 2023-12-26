@@ -40,7 +40,7 @@
       aria-label="Select page"
     >
     </mat-paginator>
-    <table mat-table [dataSource]="dataSource">
+    <table mat-table [dataSource]="obsDataTable | async">
       <!-- Position Column -->
       <ng-container matColumnDef="#">
         <th mat-header-cell *matHeaderCellDef>No.</th>

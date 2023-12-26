@@ -8,19 +8,26 @@ import { CountriesService } from '../../services/countries.service';
   styles: ``
 })
 export class ByCountryPageComponent {
-  public placeholder: string = 'ej. Canadá...';
-
+  public placeholder: string = 'ej. Canada...';
+  public isLoading: boolean = false;
+  public initialValue: string = '';
   public countries: Country[] = [];
 
   constructor(
     private countriesService: CountriesService
   ) { }
 
+  ngOnInit(): void {
+    this.countries = this.countriesService.cacheStore.byCountries.countries!;
+    this.initialValue = this.countriesService.cacheStore.byCountries.term;
+  }
 
   searchByCountry(termino: string) {
+    this.isLoading = true;
     this.countriesService.searchCountry(termino)
       .subscribe(resp => {
         this.countries = resp;
+        this.isLoading = false;
       });
 
   }
