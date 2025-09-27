@@ -1,0 +1,45 @@
+<style>
+
+  /* top-menu.component.html */
+  nav ul li a {
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+
+
+</style>
+
+<nav class="p-4 w-full bg-base-300 text-base-content rounded-box mb-4">
+
+  <ul class="menu bg-base-200 sm:menu-horizontal rounded-box">
+    <li>
+      <a class=" normal-case" routerLinkActive="btn btn-primary" routerLink="by-capital">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" class="inline-block ">
+          <path fill="currentColor"
+            d="M7.712 21v-1.538l2.846-2.004v-4.331L3 16.173v-1.961l7.558-5.331V4.442q0-.594.424-1.018T12 3t1.018.424t.424 1.018v4.439L21 14.21v1.962l-7.558-3.046v4.33l2.827 2.005V21L12 19.692z" />
+        </svg>
+        Por capital
+        <span class="badge badge-xs">99+</span>
+      </a>
+    </li>
+    <li>
+      <a lass=" normal-case" routerLinkActive="btn btn-primary" routerLink="by-country">
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" class="inline-block ">
+          <path fill="currentColor"
+            d="M5.042 19.354q-.384.142-.713-.084T4 18.634V6.404q0-.268.13-.489t.378-.307L9 4.077l6 2.1l3.958-1.53q.384-.143.713.054t.329.588v6.713q-.817-.871-1.88-1.33t-2.236-.46q-.346 0-.692.049t-.692.128V7.004l-5-1.746V17.64zM20.312 21l-2.454-2.454q-.412.333-.905.5q-.493.165-1.068.165q-1.362 0-2.335-.972t-.973-2.335t.973-2.335t2.335-.973t2.334.973t.973 2.335q0 .556-.166 1.049t-.48.905L21 20.292zm-4.427-2.788q.984 0 1.643-.645q.659-.644.664-1.663q.006-.985-.658-1.646q-.665-.662-1.65-.662t-1.645.662t-.662 1.646t.662 1.646t1.645.662" />
+        </svg>
+        Por país
+      </a>
+    </li>
+    <li>
+      <a lass=" normal-case" routerLinkActive="btn btn-primary" routerLink="by-region">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="inline-block ">
+          <path fill="currentColor" d="m2.904 17l4.192-5.616L10.558 16h2.544l-2.64-3.5l3.634-4.846l7 9.346z" />
+        </svg>
+        Por región
+      </a>
+    </li>
+  </ul>
+
+</nav>

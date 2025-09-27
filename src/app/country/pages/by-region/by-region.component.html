@@ -1,0 +1,22 @@
+<section>
+
+  <h1 class="text-xl mb-5">Búsqueda por Región</h1>
+
+  <!-- botones region -->
+  <div>
+    @for (region of regions; track region) {
+    <button class="btn btn-outline mx-2" [class.btn-primary]="selectedRegion() === region" (click)="selectedRegion.set(region)">{{region}}</button>
+    }
+  </div>
+
+
+  @if(countryResource.error()){
+    <h3>{{countryResource.error()}}</h3>
+    }@if(countryResource.hasValue() ) {
+      <country-list [errorMessage]="countryResource.error()" [isEmpty]="countryResource.value()?.length === 0"
+  [countries]="countryResource.value() ?? []" [isLoading]="countryResource.isLoading()"></country-list>
+
+      }
+</section>
+
+<!-- <country-list [countries]="countryResource.value()!"></country-list> -->

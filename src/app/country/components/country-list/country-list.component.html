@@ -1,0 +1,85 @@
+<section class="mt-5 overflow-x-auto">
+  <table class="table table-md mt-2 w-full">
+    <!-- head -->
+    <thead>
+      <tr>
+        <th>#</th>
+        <th> Ícono </th>
+        <th>bandera</th>
+        <th>Nombre</th>
+        <th>Capital</th>
+        <th>Población</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+
+      @for (country of countries(); track country.cca2; let index = $index) {
+      <tr>
+        <th>
+          <label> {{index + 1}} </label>
+        </th>
+        <td>
+          <div class="flex items-center gap-3">
+            <div class="avatar">
+              <div class="mask mask-squircle h-12 w-12">
+                <img [src]="country.flagSvg" [alt]="country.name" />
+              </div>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="flex items-center gap-3">
+            <div class="avatar">
+              <div class="mask mask-squircle h-12 w-12">
+                <img [src]="country.flagSvg" [alt]="country.name" />
+              </div>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div>
+            <div class="font-bold">{{country.name}} </div>
+          </div>
+        </td>
+        <td>
+          {{country.capital}}
+        </td>
+        <td>
+          <span class="badge badge-primary"> {{country.population | number}}</span>
+
+        </td>
+        <th>
+          <button class=" link-primary btn-xs cursor-pointer" [routerLink]="['/country/by', country.cca2]">Más
+            información</button>
+        </th>
+      </tr>
+      }
+
+      @if(errorMessage()){
+      <tr>
+        <td class="text-center" colspan="8">{{errorMessage()}} </td>
+      </tr>
+      }
+      <!--  -->
+      @if(countries().length === 0){
+      <tr>
+        <td class="text-center" colspan="8">No se encontraron resultados </td>
+      </tr>
+      }
+      <!--  -->
+
+      @if (isLoading()) {
+        <tr>
+        <td class="text-center" colspan="8">Buscando paises... </td>
+      </tr>
+      }
+
+
+
+    </tbody>
+
+  </table>
+
+
+</section>

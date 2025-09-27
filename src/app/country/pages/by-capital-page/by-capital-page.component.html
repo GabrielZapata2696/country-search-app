@@ -1,0 +1,14 @@
+
+<!-- <country-search-input (search)="onSearchValue($event)"  placeholder="Buscar por capital" ></country-search-input> -->
+<country-search-input (search)="query.set($event)"  placeholder="Buscar por capital" [initialValue]="query()" ></country-search-input>
+
+
+@if(countryResource.error()){
+  <h3>{{countryResource.error()}}</h3>
+}@if(countryResource.hasValue() ) {
+<country-list [errorMessage]="countryResource.error()" [isEmpty]="countryResource.value()?.length === 0"
+  [countries]="countryResource.value() ?? []" [isLoading]="countryResource.isLoading()"></country-list>
+
+}
+
+
