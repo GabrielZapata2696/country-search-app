@@ -1,4 +1,4 @@
-<country-search-input (search)="query.set($event)" placeholder="Buscar por país"></country-search-input>
+<country-search-input (search)="query.set($event)" placeholder="Buscar por país" [initialValue]="query()"></country-search-input>
 
 
 <!-- <country-list [countries]="[]"></country-list> -->
@@ -6,5 +6,15 @@
 
 <!-- <h3>{{countryResource.error()}}</h3> -->
 
+<!-- <country-list [errorMessage]="countryResource.error()" [isEmpty]="countryResource.value()?.length === 0"
+  [countries]="countryResource.value() ?? []" [isLoading]="countryResource.isLoading()"></country-list>
+   -->
+
+
+@if(countryResource.error()){
+<h3>{{countryResource.error()}}</h3>
+}@if(countryResource.hasValue() ) {
 <country-list [errorMessage]="countryResource.error()" [isEmpty]="countryResource.value()?.length === 0"
   [countries]="countryResource.value() ?? []" [isLoading]="countryResource.isLoading()"></country-list>
+
+}

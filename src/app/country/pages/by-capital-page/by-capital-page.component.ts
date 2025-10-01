@@ -2,7 +2,7 @@ import { Component, inject, resource, signal } from '@angular/core';
 import { CountrySearchBar } from "../../components/country-search-bar/country-search-bar";
 import { CountryListComponent } from "../../components/country-list/country-list.component";
 import { CountryService } from '../../services/country.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { firstValueFrom, of } from 'rxjs';
 import { rxResource } from '@angular/core/rxjs-interop'
 
@@ -19,15 +19,17 @@ export class ByCapitalPageComponent {
   countryService = inject(CountryService);
   activatedRoute = inject(ActivatedRoute);
 
-
+  router = inject(Router);
   queryParam = this.activatedRoute.snapshot.queryParamMap.get('query') || '';
   query = signal(this.queryParam);
+
+
 
   countryResource = rxResource({
     params: () => ({ query: this.query() }),
     stream: ({ params }) => {
       if (!params.query) return of([]);
-      console.log('Fetching countries for query:', params.query);
+      this.router.navigate(['country/by-capital'], { queryParams: { query: params.query } });
       return this.countryService.searchByCapital(params.query)
       ;
     },
